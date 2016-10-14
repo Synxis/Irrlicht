@@ -181,10 +181,10 @@ public:
 				// move the rest of the array content
 				for (u32 i=used-1; i>index; --i)
 				{
-					data[i] = data[i-1];
+					allocator.construct(&data[i], data[i-1]);
 				}
 				// insert the new element
-				data[index] = element;
+				allocator.construct(&data[index], element);
 			}
 			else
 			{
